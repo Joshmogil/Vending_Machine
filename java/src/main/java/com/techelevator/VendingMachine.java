@@ -8,16 +8,12 @@ import java.util.*;
 
 public class VendingMachine{
 
-
-    //Instance variables
     private SortedMap<String, Stack<Product>> inventory = new TreeMap<String, Stack<Product>>(); //String = slot identifier , Stack<product> = inventory place content
     private CoinBox vmCoinBox = new CoinBox();
-    private Logger vmLogger;
+    private Logger vmLogger= new Logger("log.txt");
 
-    //Default constructor
     public VendingMachine(){};
 
-    // Vending machine constructor, builds inventory
     public VendingMachine(String pathToInventoryFile) {
         File inputFile = new File(pathToInventoryFile);
         try (Scanner fileReader = new Scanner(inputFile)) {
@@ -39,10 +35,7 @@ public class VendingMachine{
         }
     }
 
-    //Initializes this vending machine's Logger***I"m not sure why this is here***
-    {
-        vmLogger = new Logger("log.txt");
-    }
+
     //Method displys items when user chooses "1" from main menu
     public void displayItems() {
         for (SortedMap.Entry<String, Stack<Product>> entry : inventory.entrySet()) {

@@ -35,6 +35,5 @@ public class LoggerTests {
 
     }
 
-    //(String transactionDetail, Integer money1, Integer money2)
 
 }
